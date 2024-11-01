@@ -150,10 +150,6 @@ export default function Index({ products, queryParams = null, success }) {
                                                 </Link>
 
                                                 <Button
-                                                    style={{
-                                                        marginBottom: 5,
-                                                        marginRight: 5,
-                                                    }}
                                                     onClick={() =>
                                                         deleteProduct(item)
                                                     }
