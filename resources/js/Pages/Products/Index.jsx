@@ -42,9 +42,9 @@ export default function Index({ products, queryParams = null, success }) {
     };
     const onKeyPress = (name, e) => {
         if (e.key !== "Enter") return;
-    
+
         searchFieldChanged(name, e.target.value);
-      };
+    };
     return (
         <AuthenticatedLayout
             header={
@@ -70,7 +70,9 @@ export default function Index({ products, queryParams = null, success }) {
                             id="search"
                             type="text"
                             name="search"
-                            defaultValue={queryParams?.name ? queryParams?.name : ''}
+                            defaultValue={
+                                queryParams?.name ? queryParams?.name : ""
+                            }
                             placeholder="Search..."
                             className="mt-1 block w-full"
                             autoComplete="current-search"
@@ -164,12 +166,14 @@ export default function Index({ products, queryParams = null, success }) {
                                 </>
                             </tbody>
                         ))}
-                        <thead>
-                            <tr>
-                                <th colSpan="6">Total</th>
-                                <th colSpan="1">{getSum(data)}</th>
-                            </tr>
-                        </thead>
+                        {queryParams == null && (
+                            <thead>
+                                <tr>
+                                    <th colSpan="6">Total</th>
+                                    <th colSpan="1">{getSum(data)}</th>
+                                </tr>
+                            </thead>
+                        )}
                     </Table>
                 </div>
             </div>
